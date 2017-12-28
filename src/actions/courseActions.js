@@ -15,15 +15,39 @@ export function loadCoursesSuccess(courses) {
         courses
     };
 }
+export function createCourseSuccess(course) {
+    return {
+        type: types.CREATE_COURSE_SUCCESS,
+        course
+    };
+}
+export function updateCourseSuccess(course) {
+    return {
+        type: types.UPDATE_COURSE_SUCCESS,
+        course
+    };
+}
 export function loadCourses() {//thunk
     //thunk alwasy returns a function that accepts dispatch
     return dispatch => {
         //body of the thunk
-        return courseApi.getAllCourses().then(courses => {//this will return a promies     
-            dispatch(loadCoursesSuccess(courses));
-        }).catch(error => {
-            throw (error);
-        });
-
+        return courseApi.getAllCourses()
+            .then(courses => {//this will return a promies     
+                dispatch(loadCoursesSuccess(courses));
+            })
+            .catch(error => {
+                throw (error);
+            });
+    };
+}
+export function saveCourse(course) {
+    return dispatch => {
+        return courseApi.saveCourse(course)
+            .then(savedCourse => {
+                course.id ? dispatch(updateCourseSuccess(savedCourse)) : dispatch(createCourseSuccess(savedCourse));
+            })
+            .catch(error => {
+                throw error;
+            });
     };
 }

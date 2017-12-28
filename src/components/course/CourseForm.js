@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors }) => {
+const CourseForm = (props) => {
 
     return (
         <form>
@@ -10,39 +10,39 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors }) =
             <TextInput
                 name="title"
                 label="title"
-                value={course.title}
-                onChange={onChange}
-                errors={errors.title} />
+                value={props.course.title}
+                onChange={props.onChange}
+                errors={props.errors.title} />
 
             <SelectInput
                 name="authorId"
                 label="Author"
-                value={course.authorId}
+                value={props.course.authorId}
                 defaultOption="Select Author"
-                options={allAuthors}
-                onChange={onChange}
-                errors={errors.authorId} />
+                options={props.allAuthors}
+                onChange={props.onChange}
+                errors={props.errors.authorId} />
 
             <TextInput
                 name="category"
                 label="Category"
-                value={course.category}
-                onChange={onChange}
-                errors={errors.category} />
+                value={props.course.category}
+                onChange={props.onChange}
+                errors={props.errors.category} />
 
             <TextInput
                 name="length"
                 label="Length"
-                value={course.length}
-                onChange={onChange}
-                errors={errors.length} />
+                value={props.course.length}
+                onChange={props.onChange}
+                errors={props.errors.length} />
 
             <input
                 type="submit"
-                disabled={loading}
-                value={loading ? 'Saving' : 'Save'}
+                disabled={props.loading}
+                value={props.loading ? 'Saving' : 'Save'}
                 className="btn btn-primary"
-                onClick={onSave}
+                onClick={props.onSave}
             />
         </form>
     );
