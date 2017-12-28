@@ -1,22 +1,22 @@
 import React, { PropTypes } from 'react';
-const SelectInput = ({ name, label, onChange, defaultOption, value, error, options }) => {
+const SelectInput = (props) => {
 
     return (
         <div className="form-group">
-            <label htmlFor={name}>{label}</label>
+            <label htmlFor={props.name}>{props.label}</label>
             <div className="field">
                     <select
-                        name={name}
-                        value={value}
-                        onChange={onChange}
+                        name={props.name}
+                        value={props.value}
+                        onChange={props.onChange}
                         className="form-control">
-                        <option value="">{defaultOption}</option>
-                        {options.map((option) => {
+                        <option value="">{props.defaultOption}</option>
+                        {props.options.map((option) => {
                             return <option key={option.value} value={option.value}>{option.text}</option>;
                         })}
                     </select>
                 
-                {error && <div className="alert alert-danger">{error}</div>}
+                {props.error && <div className="alert alert-danger">{props.error}</div>}
             </div>
         </div>
     );

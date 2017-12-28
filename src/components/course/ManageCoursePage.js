@@ -11,15 +11,17 @@ class ManageCoursePage extends React.Component {
             errors: {}
         };
         this.updateCourseState = this.updateCourseState.bind(this);
+        this.saveCourse = this.saveCourse.bind(this);
     }
     updateCourseState(event) {
         const field = event.target.name;
-        let course = this.state.course;
+        let course = Object.assign({}, this.state.course);
         course[field] = event.target.value;
-        alert(course[field]);
         this.setState({ course: course });
-        alert(course);
-        //return this.setState((prevState)=>({ course: prevState.course }));
+    }
+    saveCourse(event) {
+        event.preventDefault();
+        this.props.actions.createCourseSuccess(this.state.course);
     }
     render() {
         return (
@@ -27,7 +29,8 @@ class ManageCoursePage extends React.Component {
                 <CourseForm
                     allAuthors={this.props.authors}
                     onChange={this.updateCourseState}
-                    course={this.props.course}
+                    onSave={this.saveCourse}
+                    course={this.state.course}
                     errors={this.state.errors} />
             </div>
         );
@@ -48,12 +51,12 @@ function mapStateToProps(state, ownProps) {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(courseActions.createCourse)
+        actions: bindActionCreators(courseActions, dispatch)
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
 ManageCoursePage.propTypes = {
-    //
     course: PropTypes.object.isRequired,
-    authors: PropTypes.array.isRequired
+    authors: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
 };
