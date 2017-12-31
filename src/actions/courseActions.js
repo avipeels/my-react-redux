@@ -3,12 +3,8 @@
  */
 import * as types from './actionTypes';
 import courseApi from '../api/mockCourseApi';
-export function createCourse(course) {//Action creator
-    return {
-        type: types.CREATE_COURSE,//Action
-        course//data
-    };
-}
+import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
+
 export function loadCoursesSuccess(courses) {
     return {
         type: types.LOAD_COURSES_SUCCESS,
@@ -31,6 +27,7 @@ export function loadCourses() {//thunk
     //thunk alwasy returns a function that accepts dispatch
     return dispatch => {
         //body of the thunk
+        dispatch(beginAjaxCall());
         return courseApi.getAllCourses()
             .then(courses => {//this will return a promies     
                 dispatch(loadCoursesSuccess(courses));
@@ -42,11 +39,13 @@ export function loadCourses() {//thunk
 }
 export function saveCourse(course) {
     return dispatch => {
+        dispatch(beginAjaxCall());
         return courseApi.saveCourse(course)
             .then(savedCourse => {
                 course.id ? dispatch(updateCourseSuccess(savedCourse)) : dispatch(createCourseSuccess(savedCourse));
             })
             .catch(error => {
+                dispatch(ajaxCallError());
                 throw error;
             });
     };
