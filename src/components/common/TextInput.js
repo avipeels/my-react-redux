@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 const TextInput = (props) => {
     let wrapperClass = 'form-group';
-    if (props.error && props.error.length > 0) {
+    if (props.errors && props.errors.length > 0) {
         wrapperClass += " " + 'has-error';
     }
     return (
@@ -15,7 +15,7 @@ const TextInput = (props) => {
                     value={props.value}
                     onChange={props.onChange}
                 />
-                {props.error && <div className="alert alert-danger">{props.error}</div>}
+                {props.errors && <div className="alert alert-danger">{props.errors}</div>}
             </div>
         </div>
     );
@@ -26,6 +26,6 @@ TextInput.propTypes = {
     placeholder: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string,
-    error: PropTypes.string
+    errors: PropTypes.string
 };
 export default TextInput;
