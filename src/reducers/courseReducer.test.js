@@ -24,7 +24,7 @@ describe('Course Reducer test', () => {
         const initialState = [
             { id: 'A', title: 'A' },
             { id: 'B', title: 'B' },
-            { id: 'C', title: 'C' },
+            { id: 'C', title: 'C' }
         ];
         const course = { id: 'B', title: 'New Title' };
         const action = actions.updateCourseSuccess(course);
