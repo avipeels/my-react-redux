@@ -17,6 +17,11 @@ export class ManageCoursePage extends React.Component {
         this.updateCourseState = this.updateCourseState.bind(this);
         this.saveCourse = this.saveCourse.bind(this);
     }
+    componentWillReceiveProps(nextProps) {
+        if (this.props.course.id !== nextProps.id) {
+            this.setState({ course: Object.assign({}, nextProps.course) });
+        }
+    }
     updateCourseState(event) {
         const field = event.target.name;
         let course = Object.assign({}, this.state.course);
@@ -38,6 +43,7 @@ export class ManageCoursePage extends React.Component {
         if (!this.courseFormIsValid()) {
             return;
         }
+        // let saveCourseObject = Object.assign({}, this.state.course, { saving: true });
         this.setState({ saving: true });
         this.props.actions.saveCourse(this.state.course)
             .then(() => {
@@ -68,7 +74,7 @@ export class ManageCoursePage extends React.Component {
     }
 }
 function getCourseById(courses, id) {
-    const course = courses.filter(course => course.id = id);
+    const course = courses.filter(course => course.id === id);
     if (course.length) return course[0];
     return null;
 }
