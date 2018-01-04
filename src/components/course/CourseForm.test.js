@@ -26,5 +26,5 @@ describe('Test Course Form via Enzyme', () => {
     it('save button is labelled "Saving..." when saving', () => {
         const wrapper = setup(true);
         expect(wrapper.find('input').props().value).toBe('Saving...');
-    })
+    });
 });

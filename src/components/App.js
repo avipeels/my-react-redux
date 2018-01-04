@@ -16,7 +16,7 @@ class App extends React.Component {
 function mapStateToProps(state) {
     return {
         loading: state.ajaxCallsInprogress > 0
-    }
+    };
 }
 App.propTypes = {
     children: PropTypes.object.isRequired,

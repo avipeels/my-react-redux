@@ -3,7 +3,7 @@ import * as courseActions from './courseActions';
 import * as types from './actionTypes';
 
 import thunk from 'redux-thunk';
-import nock from 'nock'//nock- node + mock
+import nock from 'nock';//nock- node + mock
 import configureMockStore from 'redux-mock-store';
 
 describe('Course Actions', () => {

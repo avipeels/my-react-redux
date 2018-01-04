@@ -15,5 +15,5 @@ const Header = ({ loading }) => {
 };
 Header.propTypes = {
     loading: PropTypes.bool.isRequired
-}
+};
 export default Header;
