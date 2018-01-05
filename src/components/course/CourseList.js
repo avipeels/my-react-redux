@@ -10,6 +10,7 @@ const CourseList = ({ courses }) => {
                     <th>Author</th>
                     <th>Category</th>
                     <th>Length</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,5 +23,6 @@ const CourseList = ({ courses }) => {
 };
 CourseList.propTypes = {
     courses: PropTypes.array.isRequired
+
 };
 export default CourseList;

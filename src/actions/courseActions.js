@@ -23,6 +23,12 @@ export function updateCourseSuccess(course) {
         course
     };
 }
+export function deleteCourseSuccess(courseId) {
+    return {
+        type: types.DELETE_COURSE_SUCCESS,
+        courseId
+    };
+}
 export function loadCourses() {//thunk
     //thunk alwasy returns a function that accepts dispatch
     return dispatch => {
@@ -46,6 +52,17 @@ export function saveCourse(course) {
             })
             .catch(error => {
                 dispatch(ajaxCallError());
+                throw error;
+            });
+    };
+}
+export function deleteCourse(course) {
+    return dispatch => {
+        return courseApi.deleteCourse(course)
+            .then(courseId => {
+                dispatch(deleteCourseSuccess(courseId));
+            })
+            .catch(error => {
                 throw error;
             });
     };

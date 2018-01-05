@@ -43,7 +43,6 @@ export class ManageCoursePage extends React.Component {
         if (!this.courseFormIsValid()) {
             return;
         }
-        // let saveCourseObject = Object.assign({}, this.state.course, { saving: true });
         this.setState({ saving: true });
         this.props.actions.saveCourse(this.state.course)
             .then(() => {

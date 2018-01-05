@@ -12,6 +12,13 @@ export default function courseReducer(state = initialState.courses, action) {
             return [
                 ...state.filter(course => course.id !== action.course.id),
                 Object.assign({}, action.course)];
+        case types.DELETE_COURSE_SUCCESS:
+            
+            {//since the state can't be mutated, it is copied into new variable and returned
+                let newState = state.slice();
+                newState.splice(action.courseId, 1);
+                return newState;//returned new state
+            }
         default:
             return state;
     }

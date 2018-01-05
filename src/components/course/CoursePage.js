@@ -4,28 +4,30 @@ import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
 import { browserHistory } from 'react-router/lib';
+import DeleteButton from '../common/DeleteButton';
 class CoursePage extends React.Component {
     constructor() {
         super();
         this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
     }
-    courseRow(course, index) {
-        return <div key={index} >{course.title}</div>;
-    }
+
     redirectToAddCoursePage() {
         browserHistory.push('/course');
+    }
+    deleteCurrentCourse() {
+
     }
     render() {
         const { courses } = this.props;
         return (
             <div>
                 <h1>Courses</h1>
-                {/* {this.props.courses.map(this.courseRow)} */}
                 <input
                     type="text"
                     value="Add Course"
                     className="btn btn-primary"
-                    onClick={this.redirectToAddCoursePage} />
+                    onClick={this.redirectToAddCoursePage}
+                />
                 <CourseList courses={courses} />
             </div>
         );
