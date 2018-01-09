@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import { authorsFormattedForDropdown } from '../../selectors/selectors';
+import warnAboutUnsavedChanges from '../hoc/WarnAboutUnsavedChanges';
 import CourseForm from './CourseForm';
 import { fail } from 'assert';
 import toastr from 'toastr';
@@ -96,7 +97,6 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators(courseActions, dispatch)
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
 ManageCoursePage.propTypes = {
     course: PropTypes.object.isRequired,
     authors: PropTypes.array.isRequired,
@@ -106,3 +106,4 @@ ManageCoursePage.propTypes = {
 ManageCoursePage.contextTypes = {
     router: PropTypes.object
 };
+export default warnAboutUnsavedChanges(connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage),'CourseForm');
