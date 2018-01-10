@@ -36,6 +36,14 @@ export class ManageCoursePage extends React.Component {
             errors.title = "Title must be at least 5 characters.";
             formIsValid = false;
         }
+        if (this.state.course.category.length < 5) {
+            errors.category = "Category must be at least 5 characters.";
+            formIsValid = false;
+        }
+        if (this.state.course.length.length < 3) {
+            error.length = "Please enter length in the mm:ss format";
+            formIsValid=false;
+        }
         this.setState({ errors: errors });
         return formIsValid;
     }
@@ -106,4 +114,4 @@ ManageCoursePage.propTypes = {
 ManageCoursePage.contextTypes = {
     router: PropTypes.object
 };
-export default warnAboutUnsavedChanges(connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage),'CourseForm');
+export default warnAboutUnsavedChanges(connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage), 'CourseForm');

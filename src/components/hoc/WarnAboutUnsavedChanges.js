@@ -4,9 +4,12 @@ import { connect } from 'react-redux';
 import { isDirty } from 'redux-form';
 function warnAboutSavedChanges(WrappedComponent, formName) {
     class WarnAboutSavedChanges extends React.Component {
-        componentDidMount() {
+        componentWillUnmount() {
+          //  console.log('context:'+this.context);
+        //   super(props);
+          //  console.log('props:'+this.props);
             this.props.router.setRouteLeaveHook(this.props.route, () => {
-                if (this.state.unsaved)
+                if (this.props.isFormDirty)
                     return 'You have unsaved information, are you sure you want to leave this page?'
             });
         }
@@ -16,16 +19,16 @@ function warnAboutSavedChanges(WrappedComponent, formName) {
     }
     WarnAboutSavedChanges.propTypes = {
         isFormDirty: PropTypes.bool,
-        router: PropTypes.object,
+         router: PropTypes.object,
         route: PropTypes.object
     };
-    function mapStateToProps(state) {
+    function mapStateToProps(state,context) {
         return {
             isFormDirty: isDirty(formName)(state),
-            route:state.route,
-            router:state.router
+            route:context.route,
+            router:context.router
         }
-    };
+    }
 
     return withRouter(
         connect(mapStateToProps, null)(WarnAboutSavedChanges)
