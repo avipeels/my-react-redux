@@ -13,7 +13,7 @@ export default function courseReducer(state = initialState.courses, action) {
                 ...state.filter(course => course.id !== action.course.id),
                 Object.assign({}, action.course)];
         case types.DELETE_COURSE_SUCCESS:
-            
+            //https://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html
             {//since the state can't be mutated, it is copied into new variable and returned
                 let newState = state.slice();
                 newState.splice(action.courseId, 1);

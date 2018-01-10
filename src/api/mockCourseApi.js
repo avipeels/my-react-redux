@@ -97,7 +97,7 @@ class CourseApi {
         const indexOfCourseToDelete = courses.findIndex(course => course.id == courseId);
         courses.splice(indexOfCourseToDelete, 1);
         resolve(indexOfCourseToDelete);
-      }, delay);
+      }, 0);
     });
   }
 }

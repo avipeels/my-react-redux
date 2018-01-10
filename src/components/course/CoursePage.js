@@ -28,14 +28,17 @@ class CoursePage extends React.Component {
                     className="btn btn-primary"
                     onClick={this.redirectToAddCoursePage}
                 />
-                <CourseList courses={courses} />
+                {courses.length ? <CourseList courses={courses} /> :
+                    !this.props.loading ? <span>Please add course</span> :
+                        <span></span>}
             </div>
         );
     }
 }
 function mapStateToProps(state) {//state from redux 
     return {
-        courses: state.courses//returns courses which wil be assigned to our container component as props
+        courses: state.courses,
+        loading: state.ajaxCallsInProgress > 0
     };
 }
 function mapDispatchToProps(dispatch) {
@@ -46,6 +49,7 @@ function mapDispatchToProps(dispatch) {
 }
 CoursePage.propTypes = {
     actions: PropTypes.object.isRequired,
-    courses: PropTypes.array.isRequired
+    courses: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);

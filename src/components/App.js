@@ -2,8 +2,16 @@
 import React, { PropTypes } from 'react';
 import Header from './common/Header';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router'
 //here connect is required to get the loading status from the redux store and pass it down to the header component status
 class App extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     console.log(props);
+    //     this.props.router.listen((location, action) => {
+    //         alert(location.toString());
+    //     });
+    // }
     render() {
         return (
             <div className="container-fluid">
@@ -23,4 +31,5 @@ App.propTypes = {
     loading: PropTypes.bool.isRequired
 };
 
+//export default withRouter(connect(mapStateToProps)(App));
 export default connect(mapStateToProps)(App);

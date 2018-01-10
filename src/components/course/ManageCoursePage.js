@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import { authorsFormattedForDropdown } from '../../selectors/selectors';
+import warnAboutUnsavedChanges from '../hoc/WarnAboutUnsavedChanges';
 import CourseForm from './CourseForm';
 import { fail } from 'assert';
 import toastr from 'toastr';
@@ -34,6 +35,14 @@ export class ManageCoursePage extends React.Component {
         if (this.state.course.title.length < 5) {
             errors.title = "Title must be at least 5 characters.";
             formIsValid = false;
+        }
+        if (this.state.course.category.length < 5) {
+            errors.category = "Category must be at least 5 characters.";
+            formIsValid = false;
+        }
+        if (this.state.course.length.length < 3) {
+            error.length = "Please enter length in the mm:ss format";
+            formIsValid=false;
         }
         this.setState({ errors: errors });
         return formIsValid;
@@ -96,7 +105,6 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators(courseActions, dispatch)
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
 ManageCoursePage.propTypes = {
     course: PropTypes.object.isRequired,
     authors: PropTypes.array.isRequired,
@@ -106,3 +114,4 @@ ManageCoursePage.propTypes = {
 ManageCoursePage.contextTypes = {
     router: PropTypes.object
 };
+export default warnAboutUnsavedChanges(connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage), 'CourseForm');
