@@ -43,7 +43,215 @@ const courses = [
     authorId: "cory-house",
     length: "5:10",
     category: "HTML5"
-  }
+  },
+  // {
+  //   id: "a",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "b",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "c",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "d",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "e",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "f",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "g",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "h",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "i",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "j",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "k",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "l",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "m",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "n",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "o",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "p",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "q",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "r",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "s",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "t",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "u",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "v",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "w",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "x",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "y",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // },
+  // {
+  //   id: "z",
+  //   title: "Web Component Fundamentals",
+  //   watchHref: "http://www.techtrainingpoint.com",
+  //   authorId: "cory-house",
+  //   length: "5:10",
+  //   category: "HTML5"
+  // }
 ];
 
 function replaceAll(str, find, replace) {

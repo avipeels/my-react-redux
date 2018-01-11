@@ -41,7 +41,7 @@ export class ManageCoursePage extends React.Component {
             formIsValid = false;
         }
         if (this.state.course.length.length < 3) {
-            error.length = "Please enter length in the mm:ss format";
+            errors.length = "Please enter length in the mm:ss format";
             formIsValid=false;
         }
         this.setState({ errors: errors });

@@ -5,17 +5,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
 //here connect is required to get the loading status from the redux store and pass it down to the header component status
 class App extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     console.log(props);
-    //     this.props.router.listen((location, action) => {
-    //         alert(location.toString());
-    //     });
-    // }
     render() {
         return (
             <div className="container-fluid">
-                <Header loading={this.props.loading} />
+                <Header loading={this.props.loading} courseCount={this.props.courseCount} />
                 {this.props.children}
             </div>
         );
@@ -23,7 +16,8 @@ class App extends React.Component {
 }
 function mapStateToProps(state) {
     return {
-        loading: state.ajaxCallsInprogress > 0
+        loading: state.ajaxCallsInprogress > 0,
+        courseCount: state.courses.length
     };
 }
 App.propTypes = {

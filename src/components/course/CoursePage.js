@@ -14,11 +14,8 @@ class CoursePage extends React.Component {
     redirectToAddCoursePage() {
         browserHistory.push('/course');
     }
-    deleteCurrentCourse() {
-
-    }
     render() {
-        const { courses } = this.props;
+        const { courses,ajaxCallsInProgress} = this.props;
         return (
             <div>
                 <h1>Courses</h1>
@@ -28,9 +25,7 @@ class CoursePage extends React.Component {
                     className="btn btn-primary"
                     onClick={this.redirectToAddCoursePage}
                 />
-                {courses.length ? <CourseList courses={courses} /> :
-                    !this.props.loading ? <span>Please add course</span> :
-                        <span></span>}
+                {courses.length ? <CourseList courses={courses} /> : <span>Please add course</span>}
             </div>
         );
     }
@@ -38,7 +33,7 @@ class CoursePage extends React.Component {
 function mapStateToProps(state) {//state from redux 
     return {
         courses: state.courses,
-        loading: state.ajaxCallsInProgress > 0
+        ajaxCallsInProgress: state.ajaxCallsInProgress
     };
 }
 function mapDispatchToProps(dispatch) {
@@ -50,6 +45,6 @@ function mapDispatchToProps(dispatch) {
 CoursePage.propTypes = {
     actions: PropTypes.object.isRequired,
     courses: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired
+    ajaxCallsInProgress: PropTypes.number
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);
