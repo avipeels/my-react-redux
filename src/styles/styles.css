@@ -11,3 +11,15 @@ a:active{
 nav{
     padding-top: 20px;
 }
+.tablerows{
+   border: 1px solid rgb(15, 113, 194); 
+}
+.tableColumns{
+    border-right: 1px solid  rgb(15, 113, 194);
+}
+.margin-top-20px{
+    margin-top: 20px;
+}
+.width100pc{
+    width:100%;
+}

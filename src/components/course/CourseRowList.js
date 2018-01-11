@@ -4,11 +4,11 @@ import DeleteButton from '../common/DeleteButton';
 const CourseRowList = ({ course }) => {
     return (
         <tr>
-            <td><a href={course.watchHref} target="_blank">Watch</a></td>
-            <td><Link to={'/course/' + course.id}>{course.title}</Link></td>
-            <td>{course.authorId}</td>
-            <td>{course.category}</td>
-            <td>{course.length}</td>
+            <td className="tableColumns"><a href={course.watchHref} target="_blank">Watch</a></td>
+            <td className="tableColumns"><Link to={'/course/' + course.id}>{course.title}</Link></td>
+            <td className="tableColumns">{course.authorId}</td>
+            <td className="tableColumns">{course.category}</td>
+            <td className="tableColumns">{course.length}</td>
             <td><DeleteButton id={course.id} /></td>
         </tr>
     );
