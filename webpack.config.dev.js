@@ -8,7 +8,8 @@ export default {
     entry: [
         'eventsource-polyfill', // necessary for hot reloading with IE
         'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-        './src/index'
+        './src/index',
+        './src/styles/styles.scss'
     ],
     target: 'web',
     output: {
@@ -30,7 +31,15 @@ export default {
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
             { test: /\.(woff|woff2)$/, loader: "url?prefix=font/&limit=5000" },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+            { test: /\.(sass|scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+            {
+                test: /\.(jpe?g|png|gif)$/i,
+                loaders: [
+                    'url-loader?limit=10000',
+                    'img-loader'
+                ]
+            }
         ]
     }
 };

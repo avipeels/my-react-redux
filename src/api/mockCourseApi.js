@@ -43,7 +43,7 @@ const courses = [
     authorId: "cory-house",
     length: "5:10",
     category: "HTML5"
-  },
+  }
   // {
   //   id: "a",
   //   title: "Web Component Fundamentals",

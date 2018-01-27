@@ -1,0 +1,86 @@
+#app {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-width: 550px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+a:active {
+    color: orange;
+}
+
+nav {
+    padding-top: 20px;
+}
+
+.table-border-round {
+    border: 2px solid rgb(15, 113, 194);
+    border-radius: 5px;
+    border-collapse: separate;
+}
+
+.tableColumns {
+    border-right: 1px solid rgb(15, 113, 194);
+}
+
+.margin-top-20px {
+    margin-top: 20px;
+}
+
+.width100pc {
+    width: 100%;
+}
+
+.my-badge {
+    border-radius: 50%;
+    background-color: #ffffff;   
+    color: rgb(15, 113, 194);
+    border-radius: 9px;
+    padding: 1px 6px;
+    font-size: 10px;
+}
+
+a:hover span {
+    color: #ffffff;
+    background-color: rgb(15, 113, 194);
+}
+
+a:active span {
+    color: #ffffff;
+    background-color: rgb(15, 113, 194);
+}
+
+.align-middle {
+    padding: 50px 0px;
+}
+
+.my-nav-bar {
+    background-color: rgb(15, 113, 194);
+}
+
+.white-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+$padding: 6px;
+
+nav {
+  ul {
+    margin: 0;
+    padding: $padding;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: $padding 12px;
+    text-decoration: none;
+  }
+}
+
+.height200px{
+    height: 250px;
+}
